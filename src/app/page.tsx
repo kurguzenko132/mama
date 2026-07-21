@@ -107,7 +107,7 @@ export default function Home() {
         </section>
         <section id="services" className="section">
           <div className="container">
-            <h2 className="section-title">Наши услуги</h2>
+            <h2 className="section-title">Мои услуги</h2>
             <div className="services-grid">
               {services.map(([title, description, image]) => (
                 <a
