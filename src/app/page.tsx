@@ -174,25 +174,20 @@ export default function Home() {
                 <Image
                   className="specialist-photo"
                   src="/assets/images/specialist/specialist-portrait.webp"
-                  alt="Анна Иванова, подолог"
+                  alt="Кургузенко Алеся, подолог"
                   width={280}
                   height={350}
                 />
                 <div className="specialist-info">
                   <h3>О специалисте</h3>
                   <p className="role">
-                    Анна Иванова — подолог с медицинским образованием и опытом
-                    более 7 лет.
+                    Кургузенко Алеся — подолог с опытом более 9 лет.
                   </p>
                   <p>
                     Помогаю решить проблемы стоп и ногтей бережно, эффективно и
                     надолго.
                   </p>
                   <ul className="check-list">
-                    <li>
-                      <Check size={13} color="#589f8c" /> Медицинское
-                      образование
-                    </li>
                     <li>
                       <Check size={13} color="#589f8c" /> Повышение квалификации
                       в России и Европе
