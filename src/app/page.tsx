@@ -74,8 +74,7 @@ export default function Home() {
                   height={30}
                 />
                 <span>
-                  Более 200 довольных клиентов доверяют мне заботу о своих
-                  ногах
+                  Более 200 довольных клиентов доверяют мне заботу о своих ногах
                 </span>
               </div>
             </div>
@@ -284,17 +283,27 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "MedicalBusiness",
-            name: "PODOLOG",
+            name: "Podolog Kurguzenko",
             telephone: brand.phone,
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Минск",
-              streetAddress: "ул. Примерная, 12, кабинет 203",
+              streetAddress: "Бруцеро-Ерофеевская улица, 3А",
+              addressLocality: "Горки",
+              addressRegion: "Могилёвская область",
               addressCountry: "BY",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 54.29189,
+              longitude: 30.979723,
             },
             openingHours: "Mo-Su 09:00-21:00",
             image: "/assets/images/hero/hero-podologist-new.png",
-            url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+            url:
+              process.env.NEXT_PUBLIC_SITE_URL ||
+              "https://mama-cyan-six.vercel.app",
+            hasMap: brand.mapUrl,
+            sameAs: [brand.instagramUrl, brand.telegramUrl, brand.whatsappUrl],
           }),
         }}
       />

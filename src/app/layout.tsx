@@ -12,19 +12,28 @@ const manrope = Manrope({
   subsets: ["cyrillic", "latin"],
   variable: "--font-manrope",
 });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mama-cyan-six.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Подолог в Минске — профессиональный уход за стопами",
+  title: "Подолог в Горках — Кургузенко Алеся | Уход за ногами",
   description:
-    "Безопасная помощь подолога: лечение вросшего ногтя, мозолей, трещин и грибковых поражений.",
+    "Подолог Кургузенко Алеся в Горках: профессиональный уход за ногами, лечение вросшего ногтя, мозолей, трещин и грибковых поражений.",
+  keywords: [
+    "подолог Горки",
+    "подолог в Горках",
+    "медицинский педикюр Горки",
+    "лечение вросшего ногтя Горки",
+    "Кургузенко Алеся",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    title: "PODOLOG — профессиональный уход за стопами",
-    description: "Бережная и безопасная помощь подолога.",
+    title: "Подолог Кургузенко Алеся в Горках",
+    description: "Профессиональная и бережная помощь подолога в Горках.",
     url: "/",
+    siteName: "Podolog Kurguzenko",
     images: ["/assets/images/hero/hero-podologist-new.png"],
   },
   twitter: { card: "summary_large_image" },

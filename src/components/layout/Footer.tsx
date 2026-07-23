@@ -1,4 +1,84 @@
 import { Instagram, MapPin, MessageCircle, Send } from "lucide-react";
 import Image from "next/image";
 import { brand, navigation } from "@/content/site-content";
-export function Footer(){ const year = new Date().getFullYear(); return <footer className="footer" id="contacts"><div className="container"><div className="footer-grid"><div><Image className="logo" src="/assets/logo/logo-horizontal.svg" alt="PODOLOG" width={160} height={42}/><p>Бережная профессиональная забота о здоровье и красоте ваших стоп.</p></div><div><h3>Меню</h3>{navigation.slice(0,4).map(([label,id])=><a href={`#${id}`} key={id}>{label}</a>)}</div><div><h3>Контакты</h3><a href={brand.phoneHref}>{brand.phone}</a><p>{brand.hours}</p><p><MapPin size={13} style={{verticalAlign:"middle"}}/> {brand.address}</p><p><a href="https://wa.me/375291234567" aria-label="WhatsApp"><MessageCircle size={17}/></a><a href="https://t.me/" aria-label="Telegram"><Send size={17}/></a><a href="https://instagram.com/" aria-label="Instagram"><Instagram size={17}/></a></p></div><div><a href="https://maps.google.com/?q=Минск+ул.+Примерная+12" aria-label="Открыть на карте"><Image className="footer-map" src="/assets/images/location/map-preview.webp" alt="Карта: Минск, улица Примерная, 12" width={330} height={150}/></a><a href="https://maps.google.com/?q=Минск+ул.+Примерная+12">Открыть на карте →</a></div></div><div className="copyright">© {year} Podolog. Все права защищены. <a href="/privacy">Политика конфиденциальности</a></div></div></footer>; }
+export function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="footer" id="contacts">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <Image
+              className="logo"
+              src="/assets/logo/logo-horizontal.svg"
+              alt="PODOLOG"
+              width={160}
+              height={42}
+            />
+            <p>
+              Бережная профессиональная забота о здоровье и красоте ваших стоп.
+            </p>
+          </div>
+          <div>
+            <h3>Меню</h3>
+            {navigation.slice(0, 4).map(([label, id]) => (
+              <a href={`#${id}`} key={id}>
+                {label}
+              </a>
+            ))}
+          </div>
+          <div>
+            <h3>Контакты</h3>
+            <a href={brand.phoneHref}>{brand.phone}</a>
+            <p>{brand.hours}</p>
+            <p>
+              <MapPin size={13} style={{ verticalAlign: "middle" }} />{" "}
+              {brand.address}
+            </p>
+            <p>
+              <a
+                href={brand.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={17} />
+              </a>
+              <a
+                href={brand.telegramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Telegram"
+              >
+                <Send size={17} />
+              </a>
+              <a
+                href={brand.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram size={17} />
+              </a>
+            </p>
+          </div>
+          <div>
+            <iframe
+              className="footer-map"
+              src={brand.mapEmbedUrl}
+              title={`Яндекс Карты: ${brand.address}`}
+              loading="lazy"
+            />
+            <a href={brand.mapUrl} target="_blank" rel="noreferrer">
+              Открыть на карте →
+            </a>
+          </div>
+        </div>
+        <div className="copyright">
+          © {year} Podolog. Все права защищены.{" "}
+          <a href="/privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
