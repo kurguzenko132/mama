@@ -16,6 +16,7 @@ import {
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { CertificateGallery } from "@/components/sections/CertificateGallery";
 import {
   advantages,
   brand,
@@ -202,23 +203,7 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="certificate-strip" aria-label="Сертификаты">
-                  <span className="certificate-caption">
-                    Сертификаты и повышение квалификации
-                    <small>Нажмите на документ, чтобы открыть его полностью</small>
-                  </span>
-                  <div className="certificate-gallery">
-                    <a href="/assets/images/specialist/certificate-gift-black-white.jpeg" target="_blank" rel="noreferrer">
-                      <Image src="/assets/images/specialist/certificate-gift-black-white.jpeg" alt="Подарочный сертификат" width={500} height={400}/>
-                    </a>
-                    <a href="/assets/images/specialist/certificate-gift-gold.jpeg" target="_blank" rel="noreferrer">
-                      <Image src="/assets/images/specialist/certificate-gift-gold.jpeg" alt="Подарочный сертификат с золотой лентой" width={589} height={339}/>
-                    </a>
-                    <a href="/assets/images/specialist/certificate-training.png" target="_blank" rel="noreferrer">
-                      <Image src="/assets/images/specialist/certificate-training.png" alt="Сертификат об обучении" width={532} height={375}/>
-                    </a>
-                  </div>
-                </div>
+                <CertificateGallery />
               </article>
               <article className="process-card card">
                 <h2 className="section-title">Как проходит приём</h2>
