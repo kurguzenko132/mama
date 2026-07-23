@@ -173,7 +173,7 @@ export default function Home() {
               <article className="specialist-card card">
                 <Image
                   className="specialist-photo"
-                  src="/assets/images/specialist/specialist-portrait.webp"
+                  src="/assets/images/specialist/specialist-portrait-new.png"
                   alt="Кургузенко Алеся, подолог"
                   width={280}
                   height={350}
