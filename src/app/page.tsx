@@ -207,11 +207,15 @@ export default function Home() {
                   className="certificate-strip"
                   aria-label="Открыть все сертификаты"
                 >
+                  <span className="certificate-caption">
+                    Сертификаты и повышение квалификации
+                    <small>Нажмите, чтобы посмотреть документы</small>
+                  </span>
                   <Image
                     src="/assets/images/specialist/certificates-strip.webp"
                     alt="Сертификаты специалиста"
-                    width={550}
-                    height={82}
+                    width={528}
+                    height={150}
                   />
                 </a>
               </article>
