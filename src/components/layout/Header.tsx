@@ -39,7 +39,7 @@ export function Header() {
             </span>
           </a>
           <a className="button" href="#appointment">
-            Записаться на приём
+            Оставить заявку
           </a>
           <button
             className="mobile-toggle"
@@ -69,7 +69,7 @@ export function Header() {
             className="button"
             style={{ marginTop: "22px" }}
           >
-            Записаться на приём
+            Оставить заявку
           </a>
           <a
             href={brand.phoneHref}

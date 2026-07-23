@@ -3,6 +3,92 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-const schema=z.object({name:z.string().min(2,"Введите имя (минимум 2 символа)").max(80),phone:z.string().min(7,"Введите корректный телефон").max(20),date:z.string().optional().refine((value)=>!value || new Date(`${value}T00:00:00`)>=new Date(new Date().toDateString()),"Дата не может быть в прошлом"),comment:z.string().max(1000,"Комментарий слишком длинный").optional(),consent:z.boolean().refine(Boolean,"Нужно согласие на обработку данных"),website:z.string().optional()});
-type Values=z.infer<typeof schema>;
-export function AppointmentForm(){const [serverError,setServerError]=useState("");const [success,setSuccess]=useState(false);const {register,handleSubmit,formState:{errors,isSubmitting},reset}=useForm<Values>({resolver:zodResolver(schema),defaultValues:{consent:false}}); const submit=async(values:Values)=>{setServerError("");setSuccess(false);try{const response=await fetch("/api/appointments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(values)});if(!response.ok)throw new Error();setSuccess(true);reset({consent:false});}catch{setServerError("Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.");}};return <form className="form" onSubmit={handleSubmit(submit)} noValidate><input placeholder="Ваше имя" aria-label="Ваше имя" {...register("name")}/><input placeholder="Телефон" aria-label="Телефон" inputMode="tel" {...register("phone")}/><input type="date" aria-label="Желаемая дата" {...register("date")}/><textarea placeholder="Комментарий (необязательно)" aria-label="Комментарий" {...register("comment")}/><input tabIndex={-1} autoComplete="off" aria-hidden="true" style={{display:"none"}} {...register("website")}/>{(errors.name||errors.phone||errors.date||errors.comment||errors.consent)&&<p className="form-error">{errors.name?.message||errors.phone?.message||errors.date?.message||errors.comment?.message||errors.consent?.message}</p>}{serverError&&<p className="form-error">{serverError}</p>}{success&&<p className="form-success">Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>}<button className="button" disabled={isSubmitting}>{isSubmitting?"Отправляем…":"Записаться на приём"}</button><label className="consent"><input type="checkbox" {...register("consent")}/> Я согласен(-на) с <a href="/privacy" style={{color:"var(--primary-dark)"}}>политикой конфиденциальности</a></label></form>;}
+const schema = z.object({
+  name: z.string().min(2, "Введите имя (минимум 2 символа)").max(80),
+  phone: z.string().min(7, "Введите корректный телефон").max(20),
+  comment: z.string().max(1000, "Комментарий слишком длинный").optional(),
+  consent: z.boolean().refine(Boolean, "Нужно согласие на обработку данных"),
+  website: z.string().optional(),
+});
+type Values = z.infer<typeof schema>;
+export function AppointmentForm() {
+  const [serverError, setServerError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<Values>({
+    resolver: zodResolver(schema),
+    defaultValues: { consent: false },
+  });
+  const submit = async (values: Values) => {
+    setServerError("");
+    setSuccess(false);
+    try {
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!response.ok) throw new Error();
+      setSuccess(true);
+      reset({ consent: false });
+    } catch {
+      setServerError(
+        "Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.",
+      );
+    }
+  };
+  return (
+    <form className="form" onSubmit={handleSubmit(submit)} noValidate>
+      <input
+        placeholder="Ваше имя"
+        aria-label="Ваше имя"
+        {...register("name")}
+      />
+      <input
+        placeholder="Телефон"
+        aria-label="Телефон"
+        inputMode="tel"
+        {...register("phone")}
+      />
+      <textarea
+        placeholder="Комментарий (необязательно)"
+        aria-label="Комментарий"
+        {...register("comment")}
+      />
+      <input
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: "none" }}
+        {...register("website")}
+      />
+      {(errors.name || errors.phone || errors.comment || errors.consent) && (
+        <p className="form-error">
+          {errors.name?.message ||
+            errors.phone?.message ||
+            errors.comment?.message ||
+            errors.consent?.message}
+        </p>
+      )}
+      {serverError && <p className="form-error">{serverError}</p>}
+      {success && (
+        <p className="form-success">
+          Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.
+        </p>
+      )}
+      <button className="button" disabled={isSubmitting}>
+        {isSubmitting ? "Отправляем…" : "Оставить заявку"}
+      </button>
+      <label className="consent">
+        <input type="checkbox" {...register("consent")} /> Я согласен(-на) с{" "}
+        <a href="/privacy" style={{ color: "var(--primary-dark)" }}>
+          политикой конфиденциальности
+        </a>
+      </label>
+    </form>
+  );
+}

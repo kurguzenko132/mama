@@ -59,7 +59,7 @@ export default function Home() {
               </p>
               <div className="hero-buttons">
                 <a className="button" href="#appointment">
-                  Записаться на приём <CalendarDays size={16} />
+                  Оставить заявку <CalendarDays size={16} />
                 </a>
                 <a className="button button--outline" href="#services">
                   Узнать услуги <ArrowRight size={16} />
@@ -267,16 +267,10 @@ export default function Home() {
         <section className="section" id="appointment">
           <div className="container">
             <div className="appointment">
-              <Image
-                className="appointment-decor"
-                src="/assets/images/decor/appointment-decor.webp"
-                alt=""
-                width={360}
-                height={240}
-              />
               <div className="appointment-copy">
-                <h2>Запишитесь на приём</h2>
-                <p>и сделайте шаг к здоровью ваших стоп</p>
+                <span className="eyebrow">Онлайн-заявка</span>
+                <h2>Оставьте заявку</h2>
+                <p>Мы свяжемся с вами в ближайшее время.</p>
               </div>
               <AppointmentForm />
             </div>

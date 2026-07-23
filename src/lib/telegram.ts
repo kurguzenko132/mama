@@ -1,3 +1,22 @@
 import { serverEnv } from "./env";
 import type { Appointment } from "./validation";
-export async function notifyTelegram(appointment:Appointment){if(!serverEnv.TELEGRAM_BOT_TOKEN||!serverEnv.TELEGRAM_CHAT_ID)return;const text=["Новая заявка с сайта","Имя: "+appointment.name,"Телефон: "+appointment.phone,appointment.date?"Дата: "+appointment.date:"",appointment.comment?"Комментарий: "+appointment.comment:""].filter(Boolean).join("\n");const response=await fetch(`https://api.telegram.org/bot${serverEnv.TELEGRAM_BOT_TOKEN}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:serverEnv.TELEGRAM_CHAT_ID,text})});if(!response.ok)throw new Error("Telegram notification failed");}
+export async function notifyTelegram(appointment: Appointment) {
+  if (!serverEnv.TELEGRAM_BOT_TOKEN || !serverEnv.TELEGRAM_CHAT_ID) return;
+  const text = [
+    "Новая заявка с сайта",
+    "Имя: " + appointment.name,
+    "Телефон: " + appointment.phone,
+    appointment.comment ? "Комментарий: " + appointment.comment : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const response = await fetch(
+    `https://api.telegram.org/bot${serverEnv.TELEGRAM_BOT_TOKEN}/sendMessage`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: serverEnv.TELEGRAM_CHAT_ID, text }),
+    },
+  );
+  if (!response.ok) throw new Error("Telegram notification failed");
+}
