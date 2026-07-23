@@ -19,12 +19,12 @@ export const advantages = [
 ] as const;
 
 export const services = [
-  ["Лечение вросшего ногтя", "Безболезненное устранение проблемы, коррекция и профилактика рецидивов.", "/assets/images/services/ingrown-nail.webp"],
-  ["Мозоли и натоптыши", "Удаление сухих и стержневых мозолей, обработка натоптышей.", "/assets/images/services/calluses.webp"],
-  ["Трещины на стопах", "Комплексное лечение трещин, восстановление кожи и профилактика.", "/assets/images/services/cracks.webp"],
-  ["Грибковые поражения", "Диагностика и комплексный уход при грибковых поражениях ногтей и кожи.", "/assets/images/services/fungal-lesions.webp"],
-  ["Медицинский педикюр", "Гигиеническая обработка стоп и ногтей, уход и профилактика проблем.", "/assets/images/services/medical-pedicure.webp"],
-  ["Консультация и профилактика", "Оценка состояния стоп и персональные рекомендации по уходу.", "/assets/images/services/consultation.webp"],
+  ["Лечение вросшего ногтя", "Безболезненное устранение проблемы, коррекция и профилактика рецидивов.", "/assets/images/services/ingrown-nail-new.png"],
+  ["Мозоли и натоптыши", "Удаление сухих и стержневых мозолей, обработка натоптышей.", "/assets/images/services/calluses-new.png"],
+  ["Трещины на стопах", "Комплексное лечение трещин, восстановление кожи и профилактика.", "/assets/images/services/cracks-new.png"],
+  ["Грибковые поражения", "Диагностика и комплексный уход при грибковых поражениях ногтей и кожи.", "/assets/images/services/fungal-lesions-new.png"],
+  ["Медицинский педикюр", "Гигиеническая обработка стоп и ногтей, уход и профилактика проблем.", "/assets/images/services/medical-pedicure-new.png"],
+  ["Консультация и профилактика", "Оценка состояния стоп и персональные рекомендации по уходу.", "/assets/images/services/consultation-new.png"],
 ] as const;
 
 export const problems = [
