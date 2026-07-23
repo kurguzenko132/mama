@@ -139,7 +139,7 @@ export default function Home() {
           </div>
         </section>
         <section className="section" id="problems">
-          <div className="container">
+          <div className="container problems-container">
             <div className="problems-wrap">
               <h2 className="section-title">Какие проблемы решаем</h2>
               <div className="problems-grid">
